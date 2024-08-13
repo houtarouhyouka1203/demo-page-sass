@@ -1,0 +1,11 @@
+{
+  "name": "demo-sass",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "sass ./assets/sass:./assets/css -w"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

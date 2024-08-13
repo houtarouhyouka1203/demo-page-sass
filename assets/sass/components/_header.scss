@@ -1,0 +1,47 @@
+
+
+.header {
+    position: sticky; top: 0; left: 0; z-index: 100; 
+    background: $second-color;
+    border-bottom: 5px solid $text-color;
+    & * {
+        color: $text-color;
+    }
+    &__wrapper {
+        position: relative;
+        @extend %content-margin;
+        @include flexbox(stretch,space-between,0);
+        padding: 0 26px;
+    }
+    &__logo {
+        @include flexbox; @extend %logo; transition: transform .3s; padding-right: 0;
+        &:hover {transform: scale(1.07);}
+    }
+}
+
+.nav__drop {
+    @extend %nav-icons;
+    display: none;
+    @media (max-width: 767px) {display: inline-flex;}
+}
+.nav-bar {
+    @include flexbox($ai:stretch);
+    .nav__search {
+        @extend %nav-icons;
+    }
+    ul {
+        @media (max-width: 767px) {display: none;}
+        @include flexbox($ai:stretch);
+        li {flex-shrink: 0}
+        a {
+            @include linkbox(ib,true,12px,18px);
+            height: 100%;
+            text-transform: uppercase;
+            font: {family: $title-font; size: 2rem}
+            &:hover{
+                background: $main-color;
+                color: $white;
+            }
+        }
+    }
+}
