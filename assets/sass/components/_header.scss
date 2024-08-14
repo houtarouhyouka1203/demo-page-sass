@@ -14,7 +14,7 @@
         padding: 0 26px;
     }
     &__logo {
-        @include flexbox; @extend %logo; transition: transform .3s; padding-right: 0;
+        @include flexbox; @extend %logo; transition: transform .3s;
         &:hover {transform: scale(1.07);}
     }
 }
@@ -34,7 +34,7 @@
         @include flexbox($ai:stretch);
         li {flex-shrink: 0}
         a {
-            @include linkbox(ib,true,12px,18px);
+            @include linkbox(ib,true,0,18px);
             height: 100%;
             text-transform: uppercase;
             font: {family: $title-font; size: 2rem}

@@ -10,7 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/commando" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/futura-display-bq" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/american-captain-2" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/main.css">
+    <script src="./assets/script/main.js"></script>
 </head>
 <body>
     <header class="header">
@@ -40,20 +42,39 @@
         </div>
     </header>
     <main>
-        <section class="container pl">
+        <section class="page-title">
             <div class="wrapper">
-                <div class="container__box">
-                    <h1 class="title">PLUS ULTRA</h1>
+                <div class="hero-box">
+                    <h1 class="hero-box__title">CHARACTERS</h1>
                 </div>
             </div>
         </section>
-        <section class="container contents">
+        <section class="char-list">
             <div class="wrapper">
-                <div class="container__box" style="height: 1400px;">
-                    
+                <div class="hero-box">
+                    <button onclick="reload()">Last name to first name</button>
+                    <div class="row char__list reversed"></div>
                 </div>
             </div>
         </section>
     </main>
 </body>
 </html>
+
+<!-- 
+<div class="col">
+    <div class="card-item">
+        <div class="card-item__wrapper">
+            <div class="front char">
+                <div class="char__img">
+                    <img src="./assets/img/char/1.jpg" alt="Izuku Midoriya">
+                </div>
+                <h3 class="char__name">Izuku Midoriya</h3>
+                <p class="char__kosei"><span>Kosei</span> One For All</p>
+                <p class="char__age"><span>Age</span>16</p>
+                <p class="char__desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni, fugiat?</p>
+            </div>
+            <div class="back"></div>
+        </div>
+    </div>
+</div> -->

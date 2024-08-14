@@ -1,13 +1,14 @@
-.container .wrapper, .header__wrapper {
-  width: 100%;
+section .wrapper, .header__wrapper {
+  width: calc(100% - 26px * 2);
   margin-left: auto;
   margin-right: auto;
   max-width: 1170px;
   padding-left: 26px;
   padding-right: 26px;
+  box-sizing: content-box;
 }
 
-.container__box {
+.hero-box {
   border: 5px solid #000;
   box-shadow: 7px 7px 0 0 black;
   background: #fff;
@@ -15,12 +16,13 @@
 
 .header__logo {
   width: 140px;
-  height: 100%;
   padding: 8px 16px;
+  box-sizing: border-box;
+  align-self: center;
 }
 .header__logo img {
-  width: 80%;
-  height: 60%;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   object-position: center center;
 }
@@ -32,7 +34,7 @@
   }
 }
 
-.pl .container__box {
+.page-title .hero-box {
   word-break: break-all;
   background: url(https://staticg.sportskeeda.com/editor/2022/09/51d9f-16634464240272-1920.jpg) center top/cover no-repeat;
   background-attachment: fixed;
@@ -55,6 +57,20 @@
 }
 .nav-bar .nav__search:hover, .nav__drop:hover {
   background: #ff1000;
+}
+
+.card-item__wrapper, .card-item__wrapper > * {
+  width: 100%;
+  height: 100%;
+}
+
+.card-item__wrapper > * {
+  backface-visibility: hidden;
+  position: absolute;
+}
+
+.card-item__wrapper > * {
+  border: 5px solid #000;
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -246,7 +262,7 @@ body::before {
   z-index: -1;
 }
 
-h1, h2 {
+h1, h2, h3, p {
   line-height: normal;
   margin: 0;
   padding: 0;
@@ -277,7 +293,6 @@ h1, h2 {
   justify-content: center;
   gap: 0;
   transition: transform 0.3s;
-  padding-right: 0;
 }
 .header__logo:hover {
   transform: scale(1.07);
@@ -318,8 +333,8 @@ h1, h2 {
   align-items: center;
   justify-content: center;
   gap: 0;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-top: 0;
+  padding-bottom: 0;
   padding-left: 18px;
   padding-right: 18px;
   height: 100%;
@@ -332,19 +347,123 @@ h1, h2 {
   color: #fff;
 }
 
-.container {
+section {
   margin-top: 40px;
 }
-.title {
-  width: 100%;
-  height: 100%;
-  padding: 24px;
+.hero-box {
+  padding: 26px;
+  position: relative;
+  z-index: 1;
+}
+.hero-box__title {
   font-family: "Commando", sans-serif;
   font-size: clamp(8rem, 1rem + 5vw, 2.8rem);
   display: flex;
   align-items: center;
-  background: hsla(0, 0%, 0%, 0.564);
   color: white;
+}
+
+.page-title .hero-box::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: hsla(0, 0%, 0%, 0.564);
+  z-index: -1;
+}
+
+.row {
+  --c: 230px;
+  --g: 12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  grid-gap: var(--g);
+  grid-auto-rows: auto;
+}
+.row > * {
+  width: 100%;
+}
+.card-item {
+  aspect-ratio: 3.75/5.75;
+  perspective: 500px;
+}
+.card-item__wrapper {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.3s;
+}
+.card-item:hover .card-item__wrapper {
+  transform: rotateY(180deg);
+}
+.card-item .front {
+  background: white;
+}
+.card-item .back {
+  transform: rotateY(180deg);
+  background: pink;
+}
+
+.char {
+  z-index: 1;
+  padding: 14px;
+  overflow: hidden;
+}
+.char::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.char__img {
+  margin-bottom: 16px;
+  width: 100%;
+  height: 45%;
+  border: 3px solid #000;
+}
+.char__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+.char__name {
+  font-size: 2.8rem;
+  font-family: "American Captain", sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.char p {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  gap: 12px;
+}
+.char span {
+  display: inline-block;
+  padding: 4px 16px 4px 10px;
+  clip-path: polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%);
+}
+.char__kosei > span {
+  background: #3c0471;
+  color: white;
+}
+.char__age > span {
+  background: #ff0011;
+  color: white;
+}
+.char__desc {
+  font-size: 1.6rem;
+  margin-top: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.5;
 }
 
 /*# sourceMappingURL=main.css.map */
