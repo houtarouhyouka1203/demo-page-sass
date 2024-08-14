@@ -35,21 +35,29 @@ function loadCharList() {
     else 
         {o.innerHTML =  loadChar(char_list,"ftl");}
 }
-
-document.addEventListener("DOMContentLoaded",()=> {
-    loadCharList();
-})
 function reload() {
     var o = document.querySelector(".char__list");
     o.classList.toggle("reversed"); loadCharList();
 }
 
-{/* <div class="col"><div class="card-item"><div class="card-item__wrapper"><div class="front char">
-                <div class="char__img">
-                    <img src="./assets/img/char/1.jpg" alt="Izuku Midoriya">
-                </div>
-                <h3 class="char__name">Izuku Midoriya</h3>
-                <p class="char__kosei"><span>Kosei</span> One For All</p>
-                <p class="char__age"><span>Age</span>16</p>
-                <p class="char__desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni, fugiat?</p>
-</div><div class="back"></div></div></div></div> */}
+
+
+function appearNavTop() {
+    var oNT = document.querySelector(".navigate-top");
+    if (window.scrollY>40) {
+        oNT.classList.add("navigate-top--appeared")
+    } else {
+        oNT.classList.remove("navigate-top--appeared")
+    }
+}
+
+window.onscroll = (e) => {
+    appearNavTop();
+}
+document.addEventListener("DOMContentLoaded",()=> {
+    loadCharList();
+    appearNavTop();
+    document.querySelector(".navigate-top").addEventListener("click", () => {
+        window.scroll(0,0)
+    });
+})

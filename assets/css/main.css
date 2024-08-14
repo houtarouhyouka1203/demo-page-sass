@@ -268,6 +268,43 @@ h1, h2, h3, p {
   padding: 0;
 }
 
+.navigate-top {
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff100;
+  border: 5px solid #000;
+  box-shadow: 5px 5px 0 0 black;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  transform: translateX(100px);
+  z-index: 10;
+}
+.navigate-top::before {
+  content: "";
+  display: inline-block;
+  height: 30px;
+  width: 5px;
+  background: #000;
+  transition: transform 0.3s, background 0.3s;
+}
+.navigate-top:hover {
+  background: #ff1000;
+}
+.navigate-top:hover::before {
+  transform: translateY(-20%);
+  background: #fff;
+}
+
+.navigate-top--appeared {
+  transform: translate(0);
+}
+
 .header {
   position: sticky;
   top: 0;
