@@ -7,7 +7,7 @@
 @import "./components/footer";
 
 section {
-    margin-top: 40px;
+    margin-top: 20px; padding-bottom: 20px;
     .wrapper {@extend %content-margin;}
 }
 

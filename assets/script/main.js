@@ -13,6 +13,7 @@ Characters.prototype.fullname = function(nameDir = "ftl") {
 var char_list = [
     new Characters("Izuku", "Midoriya","./assets/img/char/1.jpg","One For All", 16, "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni, fugiat?"),
     new Characters("Katsuki", "Bakugo","./assets/img/char/2.webp","Explosion", 16, "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni, fugiat?"),
+    new Characters("Shoto", "Todoroki","https://cdn.popsww.com/blog/sites/2/2022/03/Anh-chang-Todoroki-Shoto.jpg","Hot and Cold", 16, "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni, fugiat?"),
 ]
 function loadCharList() {
     function loadChar(arr, nameDir="ftl") {
@@ -39,9 +40,6 @@ function reload() {
     var o = document.querySelector(".char__list");
     o.classList.toggle("reversed"); loadCharList();
 }
-
-
-
 function appearNavTop() {
     var oNT = document.querySelector(".navigate-top");
     if (window.scrollY>40) {
@@ -60,4 +58,22 @@ document.addEventListener("DOMContentLoaded",()=> {
     document.querySelector(".navigate-top").addEventListener("click", () => {
         window.scroll(0,0)
     });
+    loadHead();
 })
+
+function loadHead() {
+    var api = "https://jsonplaceholder.typicode.com/posts"
+    fetch(api)
+        .then ( (response) => {return response.json()})
+        .then ( (txt) => {
+            txt = txt.sort((a,b)=>(a.title[0].charCodeAt()-b.title[0].charCodeAt()))
+            // console.log(txt);
+            var htmlNode = txt.map(
+                (p)=>{
+                    return `<h2 class="title">[${p.userId}] ${p.title}</h2><p class="desc">${p.body}</p>`
+                }
+            )
+            htmlNode = htmlNode.map((e)=>`<section><div class="wrapper"><div class="hero-box">${e}</div></div></section>`)
+            document.querySelector("main").innerHTML+=(htmlNode.join(""));
+        })
+}

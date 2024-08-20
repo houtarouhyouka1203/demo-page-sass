@@ -385,7 +385,8 @@ h1, h2, h3, p {
 }
 
 section {
-  margin-top: 40px;
+  margin-top: 20px;
+  padding-bottom: 20px;
 }
 .hero-box {
   padding: 26px;
